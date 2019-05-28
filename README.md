@@ -1,0 +1,5 @@
+Als Basis dient der Projektauftrag "Mitfahrgelegenheit" aus den Modulen M120/M133/M151/M153, welcher in C# mit ASP.NET umgesetzt wird. Diese Applikation sieht die Verwaltung von Benutzerkonten, Events und Anmeldungen vor. Ich möchte das Projekt zu Übungszwecken in PHP neu umsetzen. Deshalb bleibt die Benutzeroberfläche funktional.
+
+Die Idee der Programmstruktur ist, dass der gesamte HTML-Teil in **index.php** initialisiert wird und dort auch die Datenbank eingebunden wird. Durch include von **dbConnection.php** soll die Datenbankverbindung (pdo) zur Verfügung gestellt werden, was jedoch zu Scope-Problemen führt, wenn zusätzliche *include Files* über **index.php** darauf zugreifen wollen. Deshalb wird aktuell die Verbindung direkt in **register.php** included.
+
+Dieses Problem muss zuerst gelöst werden, bevor die Arbeit fortgesetzt wird, weil sonst die Datenbank-Aufgaben nicht sauber abgewickelt werden können. Allenfalls wird später die Datenbank auch mit einem eigenen Controller gehandhabt.

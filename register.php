@@ -1,6 +1,8 @@
 <?php
-
+/************************************************************************/
 include 'dbConnection.php';
+/************************************************************************/
+
 $userName = "";
 $password = "";
 $passwordRep = "";
@@ -47,13 +49,12 @@ function verifyRegistration($user, $pw, $pw2){
 
     if($_SESSION['userOK'] == true && $_SESSION['pwOK'] == true){
 
-        $con = getConnection();
-
         //create user
         $pw = password_hash($pw, PASSWORD_DEFAULT);
-        $statement = $pdo->prepare("INSERT INTO user (userName, passw) VALUES (:user, :pw)");
 
-        //$statement = $pdo->prepare("INSERT INTO user (userName, passw) VALUES (:user, :pw)");
+/************************************************************************/
+        $statement = $pdo->prepare("INSERT INTO user (userName, passw) VALUES (:user, :pw)");
+/************************************************************************/
 
         $result = $statement->execute(array('userName' => $user, 'passw' => $pw));
         $_SESSION['pageStatus'] = "regSuccess";
